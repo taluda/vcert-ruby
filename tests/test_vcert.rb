@@ -338,6 +338,7 @@ end
 
 class VcertTokenTest < Minitest::Test
   def test_access_token
+    LOG.info("<TRUST_BUNDLE> TRUST_BUNDLE is: [#{TRUST_BUNDLE}]")
     conn = Vcert::VenafiConnection.new url: TPP_TOKEN_URL, user: TPPUSER, password: TPPPASSWORD, trust_bundle: TRUST_BUNDLE
     token_info = conn.get_access_token
     assert !token_info.access_token.nil?, 'Expected access token but is nil.'
